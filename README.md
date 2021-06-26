@@ -23,7 +23,7 @@ Table 2 - 60001: based on each word. Every word is one table.
 
 Table the:
 
-| Index | Meanings | Example | Location |
+| Index | Meanings | Example | Episode |
 | :-: | :-: | :-:| :-:|
 | 1 | |
 | 2 | |
@@ -31,4 +31,10 @@ Table the:
 Index: meaning index in collins dictionary  
 Meaning: english and chinese meaning  
 Example: example of this meaning  
-Location: where do I come across this word
+Episode: where do I come across this word
+
+
+## Table word
+
+| id | Word | pron_us | collins_meaning | collins_example | Episode |
+| :-: | :-: | :-: | :-:| :-:| :-:|
