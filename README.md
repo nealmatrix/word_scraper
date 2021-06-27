@@ -38,3 +38,8 @@ Episode: where do I come across this word
 
 | id | Word | pron_us | collins_meaning | collins_example | Episode |
 | :-: | :-: | :-: | :-:| :-:| :-:|
+
+## Catagory
+
+DHS01E07
+Other: other words I come across

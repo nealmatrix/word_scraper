@@ -15,6 +15,7 @@ parser.add_argument('-t', '--type', default = 1, help = 'input word type index i
 parser.add_argument('-i', '--index', default = 1, help = 'index of the meaning', type = int)
 parser.add_argument('-f', '--filename', default = 'DH.docx', help = 'Microsoft Word file name')
 parser.add_argument('-m', '--meaning', default = '-', help = 'Add the meaning of the word')
+parser.add_argument('-ex', '--example', default = '-', help = 'Add the example of the word')
 parser.add_argument('-e', '--episode', default = 'DHS01E07', help = 'Show the episode the word shows up')
 
 args = parser.parse_args()
@@ -24,6 +25,7 @@ word_type = args.type
 collins_idx = args.index
 doc_name = args.filename
 add_meaning = args.meaning
+add_example = args.example
 episode = args.episode
 
 # %%
@@ -56,14 +58,12 @@ def scrapeFromYoudao(word, word_type, collins_idx, add_meaning):
         collins_example = collins_example_div[0].get_text('\n', strip = True) if collins_example_div else '-'
     else:
         collins_meaning = add_meaning
-        collins_example = '-'
+        collins_example = add_example
 
     print ("\n" + collins_meaning)
     print ("\n" + collins_example)
 
     return pron_us, collins_meaning, collins_example
-
-pron_us, collins_meaning, collins_example = scrapeFromYoudao(word, word_type, collins_idx, add_meaning)
 
 # %%
 # Store data into the sqlite database
@@ -88,10 +88,6 @@ def WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode):
             episode + "');"
             )
 
-    # with con:
-    #     data = con.execute("SELECT * FROM WORDS")
-    #     for row in data:
-    #         print(row)
 
     print("\nInsert into database DONE")
 
@@ -122,14 +118,17 @@ def writeIntoWords(doc_name, word, pron_us, collins_meaning, collins_example, ep
     doc.save(doc_name)
     print("Write into " + doc_name + " DONE")
 
-# Double check
-yOrN = input('\nContent Checked, Y or N?\n')
+if __name__ == "__main__":
 
-if yOrN.upper() == 'Y':
-    WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode)
-    writeIntoWords(doc_name, word, pron_us, collins_meaning, collins_example, episode)
+    pron_us, collins_meaning, collins_example = scrapeFromYoudao(word, word_type, collins_idx, add_meaning)
+    
+    # Double check
+    yOrN = input('\nContent Checked, Y or N?\n')
 
-else:
-    print("Cancel")
+    if yOrN.upper() == 'Y':
+        WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode)
+
+    else:
+        print("Cancel")
 
 
