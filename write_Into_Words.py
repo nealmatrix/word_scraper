@@ -14,10 +14,11 @@ doc_name = args.filename
 
 # Access databases using pandas
 con = sl.connect('words.db')
-df = pd.read_sql_query("SELECT * FROM WORDS", con)
-print(df.head())
-print(df["word"][1])
-print(df.shape)
+df = pd.read_sql_query("SELECT * FROM WORDS WHERE id > 7", con)
+
+# print(df.head())
+# print(df["word"][1])
+# print(df.shape)
 
 # Write into Microsoft Words
 for row_num in range(df.shape[0]):

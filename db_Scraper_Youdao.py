@@ -62,6 +62,7 @@ def scrapeFromYoudao(word, word_type, collins_idx, add_meaning):
 
     print ("\n" + collins_meaning)
     print ("\n" + collins_example)
+    print ("\n" + episode)
 
     return pron_us, collins_meaning, collins_example
 
@@ -116,12 +117,12 @@ def writeIntoWords(doc_name, word, pron_us, collins_meaning, collins_example, ep
         paragraphs[i].paragraph_format.left_indent = Cm(1)
 
     doc.save(doc_name)
-    print("Write into " + doc_name + " DONE")
+    print("Write " + word + " into " + doc_name + " DONE")
 
 if __name__ == "__main__":
 
     pron_us, collins_meaning, collins_example = scrapeFromYoudao(word, word_type, collins_idx, add_meaning)
-    
+
     # Double check
     yOrN = input('\nContent Checked, Y or N?\n')
 
