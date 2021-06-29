@@ -72,20 +72,22 @@ def WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode):
     import sqlite3 as sl
     con = sl.connect('words.db')
 
-    print( "INSERT INTO WORDS (word, pron_us, collins_meaning, collins_example, episode) VALUES('" +
+    print( 
+            "INSERT INTO WORDS (word, pron_us, collins_meaning, collins_example, episode) VALUES('" +
             word + "','" +
             pron_us + "','" +
-            collins_meaning + "','" +
-            collins_example + "','" +
-            episode + "');")
+            collins_meaning.replace("'", "''") + "','" +
+            collins_example.replace("'", "''") + "','" +
+            episode + "');"
+        )
 
     with con:
         con.execute(
             "INSERT INTO WORDS (word, pron_us, collins_meaning, collins_example, episode) VALUES('" +
             word + "','" +
             pron_us + "','" +
-            collins_meaning + "','" +
-            collins_example + "','" +
+            collins_meaning.replace("'", "''") + "','" +
+            collins_example.replace("'", "''") + "','" +
             episode + "');"
             )
 
