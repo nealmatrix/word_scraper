@@ -14,7 +14,7 @@ doc_name = args.filename
 
 # Access databases using pandas
 con = sl.connect('words.db')
-df = pd.read_sql_query("SELECT * FROM WORDS WHERE id > 7", con)
+df = pd.read_sql_query("SELECT * FROM WORDS", con)
 
 # print(df.head())
 # print(df["word"][1])
@@ -27,4 +27,5 @@ for row_num in range(df.shape[0]):
     collins_meaning = df["collins_meaning"][row_num]
     collins_example = df["collins_example"][row_num]
     episode = df["episode"][row_num]
+
     writeIntoWords(doc_name, word, pron_us, collins_meaning, collins_example, episode)
