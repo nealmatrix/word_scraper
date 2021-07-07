@@ -73,7 +73,7 @@ def WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode):
     con = sl.connect('words.db')
 
     print( 
-            "INSERT INTO WORDS (word, pron_us, collins_meaning, collins_example, episode) VALUES('" +
+            "INSERT INTO WORDS2 (word, pron_us, collins_meaning, collins_example, episode) VALUES('" +
             word + "','" +
             pron_us.replace("'", "''") + "','" +
             collins_meaning.replace("'", "''") + "','" +
@@ -83,7 +83,7 @@ def WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode):
 
     with con:
         con.execute(
-            "INSERT INTO WORDS (word, pron_us, collins_meaning, collins_example, episode) VALUES('" +
+            "INSERT INTO WORDS2 (word, pron_us, collins_meaning, collins_example, episode) VALUES('" +
             word + "','" +
             pron_us.replace("'", "''") + "','" +
             collins_meaning.replace("'", "''") + "','" + # 转译字符串中有'的情况
