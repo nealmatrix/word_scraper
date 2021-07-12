@@ -41,3 +41,8 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
+
+# database related files
+*.sql
+*.db
+*.txt
