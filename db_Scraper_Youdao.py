@@ -16,7 +16,7 @@ parser.add_argument('-i', '--index', default = 1, help = 'index of the meaning',
 parser.add_argument('-f', '--filename', default = 'DH.docx', help = 'Microsoft Word file name')
 parser.add_argument('-m', '--meaning', default = '-', help = 'Add the meaning of the word')
 parser.add_argument('-ex', '--example', default = '-', help = 'Add the example of the word')
-parser.add_argument('-e', '--episode', default = 'DHS01E07', help = 'Show the episode the word shows up')
+parser.add_argument('-e', '--episode', default = 'Other', help = 'Show the episode the word shows up')
 
 args = parser.parse_args()
 
