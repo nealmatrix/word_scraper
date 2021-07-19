@@ -46,3 +46,4 @@ __pycache__/
 *.sql
 *.db
 *.txt
+*.db-journal
