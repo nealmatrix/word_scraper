@@ -16,7 +16,17 @@ parser.add_argument('-i', '--index', default = 1, help = 'index of the meaning',
 parser.add_argument('-f', '--filename', default = 'DH.docx', help = 'Microsoft Word file name')
 parser.add_argument('-m', '--meaning', default = '-', help = 'Add the meaning of the word')
 parser.add_argument('-ex', '--example', default = '-', help = 'Add the example of the word')
-parser.add_argument('-e', '--episode', default = 'Other', help = 'Show the episode the word shows up')
+#parser.add_argument('-e', '--episode', default = 'DHS01E08', help = 'Show the episode the word shows up')
+
+parser.add_argument('-e', '--episode', choices = [
+    'DHS01E07',
+    'DHS01E08',
+    'Other',
+    'LDR',
+    'POE',
+    'JW',
+    'Youdao'], default = 'DHS01E08', help = 'Show the episode the word shows up')
+
 
 args = parser.parse_args()
 
@@ -121,6 +131,13 @@ def writeIntoWords(doc_name, word, pron_us, collins_meaning, collins_example, ep
     doc.save(doc_name)
     print("Write " + word + " into " + doc_name + " DONE")
 
+# %%
+def get_words_unique(words):
+    seen = set()
+    seen_add = seen.add
+    return [x for x in words if not (x in seen or seen_add(x))]
+
+# %%
 if __name__ == "__main__":
 
     pron_us, collins_meaning, collins_example = scrapeFromYoudao(word, word_type, collins_idx, add_meaning)

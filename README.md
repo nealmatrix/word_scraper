@@ -40,7 +40,8 @@ Episode: where do I come across this word
 | :-: | :-: | :-: | :-:| :-:| :-:|
 
 ## Catagory
+refer to episode_list.txt
 
-DHS01E07
-
-Other: other words I come across
+## Workflow
+1. Input words in terminal to automatically form the table WORDS
+2. Run create_WORDS_COCA.sql to form the table WORDS_COCA

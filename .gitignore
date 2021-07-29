@@ -47,3 +47,6 @@ __pycache__/
 *.db
 *.txt
 *.db-journal
+
+# Script
+*.sh
