@@ -84,7 +84,7 @@ def WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode):
 
     print( 
             "INSERT INTO WORDS (word, pron_us, collins_meaning, collins_example, episode) VALUES('" +
-            word + "','" +
+            word.replace("'", "''") + "','" +
             pron_us.replace("'", "''") + "','" +
             collins_meaning.replace("'", "''") + "','" +
             collins_example.replace("'", "''") + "','" +
@@ -94,7 +94,7 @@ def WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode):
     with con:
         con.execute(
             "INSERT INTO WORDS (word, pron_us, collins_meaning, collins_example, episode) VALUES('" +
-            word + "','" +
+            word.replace("'","''") + "','" +
             pron_us.replace("'", "''") + "','" +
             collins_meaning.replace("'", "''") + "','" + # 转译字符串中有'的情况
             collins_example.replace("'", "''") + "','" +
