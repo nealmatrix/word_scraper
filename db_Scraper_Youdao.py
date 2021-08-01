@@ -21,11 +21,12 @@ parser.add_argument('-ex', '--example', default = '-', help = 'Add the example o
 parser.add_argument('-e', '--episode', choices = [
     'DHS01E07',
     'DHS01E08',
+    'FS01E05',
     'Other',
     'LDR',
     'POE',
     'JW',
-    'Youdao'], default = 'DHS01E08', help = 'Show the episode the word shows up')
+    'Youdao'], default = 'FS01E05', help = 'Show the episode the word shows up')
 
 
 args = parser.parse_args()

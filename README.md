@@ -45,3 +45,7 @@ refer to episode_list.txt
 ## Workflow
 1. Input words in terminal to automatically form the table WORDS
 2. Run create_WORDS_COCA.sql to form the table WORDS_COCA
+
+## doc
+1. Words_for_deletion: delete the words which have already stored in database
+2. Words_orignial: orignial all the words which I learnt before
