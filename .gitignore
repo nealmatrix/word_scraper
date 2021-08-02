@@ -44,7 +44,6 @@ __pycache__/
 *.pyc
 
 # database related files
-*.sql
 *.db
 *.txt
 *.db-journal
