@@ -22,11 +22,13 @@ parser.add_argument('-e', '--episode', choices = [
     'DHS01E07',
     'DHS01E08',
     'FS01E05',
+    'FS01E06',
     'Other',
     'LDR',
     'POE',
     'JW',
-    'Youdao'], default = 'FS01E05', help = 'Show the episode the word shows up')
+    'Youdao',
+    'DM'], default = 'FS01E06', help = 'Show the episode the word shows up')
 
 
 args = parser.parse_args()

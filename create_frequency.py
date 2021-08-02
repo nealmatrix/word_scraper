@@ -4,6 +4,7 @@ import pandas as pd
 from db_Scraper_Youdao import get_words_unique
 import matplotlib.pyplot as plt
 import numpy as np
+import time
 
 # Parameter
 up_bound = 20000
@@ -42,4 +43,8 @@ ax.text(up_bound - text_x_gap, max(n_int) + 0.5, \
 # Maximize the figure
 plt.get_current_fig_manager().window.showMaximized()
 plt.show()
+
+# Save to file with "date time".png file name
+filename = time.strftime("%Y-%m-%d %H.%M.%S", time.localtime())
+fig.savefig("progress_fig//" + filename + ".png", dpi = 500)
 
