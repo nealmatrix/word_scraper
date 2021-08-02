@@ -21,6 +21,17 @@ print(len(words_unique))
 import sqlite3 as sl
 con = sl.connect('words.db')
 
+with con:
+    con.execute(
+        # DROP TABLE
+        "DROP TABLE COCA60000;"
+    )
+    con.execute(
+        "CREATE TABLE COCA60000 ( \
+            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, \
+            word varchar(255));"
+    )
+    
 for word in words_unique:
     with con:
         con.execute(

@@ -1,6 +1,6 @@
 ## Introduction
-This project is based on previous project "Word_Scraper_Youdao". Previous project is:  
-1. Scrape info from Youdao website (URL:) collins section based on word input.
+This project is based on previous project "Word_Scraper_Youdao". Functions of previous project are:  
+1. Scrape info from Youdao website (URL: http://dict.youdao.com/w/) collins section based on word input.
 2. Format the info and input the Microsoft Word.
 
 Previous project lacks structure flexiblity and cannot get the info in word based on users' different demand.
@@ -8,44 +8,26 @@ Previous project lacks structure flexiblity and cannot get the info in word base
 So I start this project and want to store the info fetched from Youdao website into python database (SQLite).
 
 ## Database struture
-Word.db
+word.db
 
-Table 1 COCA: based on COCA 60000 top frequent words.
+Table 1:  
+COCA60000: based on COCA60000.txt
 
-| Index | Word | Easy | Meanings |
-| :-: | :-: | :-:| :-:|
-| 1 | the |
+| Index | Word |
+| :-: | :-: |
 
-Easy: means this word is easy or not. For example, words "the", "of" are easy words.  
-Meanings: means if this word is not easy, how many meanings does the Word.db store so far
-
-Table 2 - 60001: based on each word. Every word is one table.
-
-Table the:
-
-| Index | Meanings | Example | Episode |
-| :-: | :-: | :-:| :-:|
-| 1 | |
-| 2 | |
-
-Index: meaning index in collins dictionary  
-Meaning: english and chinese meaning  
-Example: example of this meaning  
-Episode: where do I come across this word
-
-
-## Table word
+Table 2:  
+WORDS
 
 | id | word | pron_us | collins_meaning | collins_example | Episode |
 | :-: | :-: | :-: | :-:| :-:| :-:|
 
-## Catagory
-refer to episode_list.txt
+Episode: where I learnt this word
 
 ## Workflow
-1. Input words in terminal to automatically form the table WORDS
-2. Run create_WORDS_COCA.sql to form the table WORDS_COCA
-
-## doc
-1. Words_for_deletion: delete the words which have already stored in database
-2. Words_orignial: orignial all the words which I learnt before
+1. Run create_COCA60000_unique.py to create COCA60000, total words: 53969
+2. Run CREATE TABLE WORDS sql in create_delete_update.sql to create table WORDS
+3. Input words in terminal to automatically form the table WORDS
+4. Change words in WORDS using UPDATE WORDS sql in create_delete_update.sql
+5. Run create_WORDS_COCA.sql to form the table WORDS_COCA
+6. Create histogram to check the study progress via create_frequency.py

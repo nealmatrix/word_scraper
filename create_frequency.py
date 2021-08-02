@@ -36,8 +36,8 @@ for a, b in zip(text_x, n_int):
 
 # Plot total number I've learnt
 total = sum(n_int)
-ax.text(up_bound - text_x_gap, max(n_int) + 0.5, \
-    'total: ' + str(total) + ' | ' + str(total / up_bound * 100) + '%', \
+ax.text(up_bound - text_x_gap, max(n_int) + 0.5, 
+    'total: ' + str(total) + ' | ' + str(total / up_bound * 100) + '%',
     ha = 'center', va = 'bottom', weight = 'bold', color = 'red')
 
 # Maximize the figure
