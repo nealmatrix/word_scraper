@@ -1,4 +1,4 @@
-# Create a frequency table or image to calculate the precentage of every 1000 words in COCA I have learnt
+# Create a histogram to calculate the precentage of every 1000 words in COCA I have learnt
 import sqlite3 as sl
 import pandas as pd
 from db_Scraper_Youdao import get_words_unique
@@ -37,7 +37,7 @@ for a, b in zip(text_x, n_int):
 # Plot total number I've learnt
 total = sum(n_int)
 ax.text(up_bound - text_x_gap, max(n_int) + 0.5, 
-    'total: ' + str(total) + ' | ' + str(total / up_bound * 100) + '%',
+    'total: ' + str(total) + ' | ' + str(round(total / up_bound * 100, 3)) + '%',
     ha = 'center', va = 'bottom', weight = 'bold', color = 'red')
 
 # Maximize the figure

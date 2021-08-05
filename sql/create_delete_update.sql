@@ -11,24 +11,25 @@ CREATE TABLE WORDS (
 
 --UPDATE
 UPDATE WORDS
-SET word = 'color'
-WHERE id = 338 AND word = 'colour';
+SET word = 'earth'
+WHERE id = 117 AND word = 'on earth';
 
 UPDATE WORDS
-SET pron_us = '[ˌsɪɡəˈrɛt] 美 [ˈsɪɡəret]'
-WHERE id = 460 AND word = 'cigarette';
+SET pron_us = '美 [ɜːrθ]'
+WHERE id = 117 AND word = 'on earth';
 
 UPDATE WORDS
-SET collins_meaning = '1. N a statistical graph that represents the frequency of values of a quantity by vertical rectangles of varying heights and widths. The width of the rectangles is in proportion to the class interval under consideration, and their areas represent the relative frequency of the phenomenon in question 柱状统计图 -> see also stem-and-leaf diagram'
-WHERE id = 480 AND word = 'histogram';
+SET collins_meaning = '1. N any carnivorous typically green insect of the family Mantidae, of warm and tropical regions, having a long body and large eyes and resting with the first pair of legs raised as if in prayer: order Dictyoptera 螳螂目昆虫 (Also called praying mantis) -> see also cockroach'
+WHERE id = 716 AND word = 'mantis';
 
 UPDATE WORDS
-SET collins_example = 'Hair Barrettes (Wood) 300 yen'
-WHERE id = 453 AND word = 'barrette';
+SET collins_example = 'How on earth did that happen?
+那到底是怎么发生的？'
+WHERE id = 117 AND word = 'on earth';
 
 UPDATE WORDS
-SET episode = 'Other'
-WHERE id = 486 AND word = 'maneuver';
+SET episode = 'JW'
+WHERE id = 606 AND word = 'roar';
 
 --DELETE ALL THE RECORDS
 -- DELETE FROM WORDS2;

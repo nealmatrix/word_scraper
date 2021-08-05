@@ -23,13 +23,15 @@ parser.add_argument('-e', '--episode', choices = [
     'DHS01E08',
     'FS01E05',      # Friends
     'FS01E06',
+    'FS01E07',
+    'HTGAWMS01E01', # How to get away with murder
     'Other',        # Other words in my life
     'LDR',          # Love death + robots
     'POE',          # Path of exile
     'JW',           # Jurassic World
     'Youdao',       # Words in Youdao collins meaning or example
     'DM'            # Despicable Me
-    ], default = 'FS01E06', help = 'Show the episode the word shows up')
+    ], default = 'HTGAWMS01E01', help = 'Show the episode the word shows up')
 
 
 args = parser.parse_args()
