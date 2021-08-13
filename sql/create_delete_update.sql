@@ -11,31 +11,47 @@ CREATE TABLE WORDS (
 
 --UPDATE
 UPDATE WORDS
-SET word = 'earth'
-WHERE id = 117 AND word = 'on earth';
+SET word = 'fulfillment'
+WHERE id = 1113 AND word = 'fulfilment';
 
 UPDATE WORDS
-SET pron_us = '美 [ɜːrθ]'
-WHERE id = 117 AND word = 'on earth';
+SET pron_us = '美 [dɪˌvɔːrˈseɪ]'
+WHERE id = 1174 AND word = 'divorcee';
 
 UPDATE WORDS
-SET collins_meaning = '1. N any carnivorous typically green insect of the family Mantidae, of warm and tropical regions, having a long body and large eyes and resting with the first pair of legs raised as if in prayer: order Dictyoptera 螳螂目昆虫 (Also called praying mantis) -> see also cockroach'
-WHERE id = 716 AND word = 'mantis';
+SET collins_meaning = '1. N-COUNT A plumber is a person whose job is to connect and repair things such as water and drainage pipes, bathtubs, and toilets. 水管工; 水暖工'
+WHERE id = 1138 AND word = 'plumber';
 
 UPDATE WORDS
-SET collins_example = 'How on earth did that happen?
-那到底是怎么发生的？'
-WHERE id = 117 AND word = 'on earth';
+SET collins_example = 'I can''t believe you went over there.
+Hey, I saw you both flirting at the wake.
+You''re obviously into each other.'
+WHERE id = 1164 AND word = '-';
 
 UPDATE WORDS
-SET episode = 'JW'
-WHERE id = 606 AND word = 'roar';
+SET episode = 'Youdao'
+WHERE id = 1186 AND word = 'incredible';
 
 --DELETE ALL THE RECORDS
 -- DELETE FROM WORDS2;
 
 --DELETE THE SPECIFIC RECORD
--- DELETE FROM WORDS WHERE id = 8;
+DELETE FROM WORDS WHERE id = 1057;
+
+/* Exchange two rows id */
+-- DECLARE @ID INT; -- sqlite not supported
+
+UPDATE WORDS
+SET id = 0
+WHERE id = 1120; -- row1 id, row1 word
+
+UPDATE WORDS
+SET id = 1120   --row1 id
+WHERE id = 1121 AND word = 'penis'; --row2 id, row 2 word
+
+UPDATE WORDS
+SET id = 1121  --row2 id
+WHERE id = 0 AND word = '-'; --row1 word
 
 /* Update id in WORDS */
 CREATE TABLE WORDS2 (

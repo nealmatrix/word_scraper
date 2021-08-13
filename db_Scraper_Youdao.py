@@ -19,19 +19,25 @@ parser.add_argument('-ex', '--example', default = '-', help = 'Add the example o
 #parser.add_argument('-e', '--episode', default = 'DHS01E08', help = 'Show the episode the word shows up')
 
 parser.add_argument('-e', '--episode', choices = [
-    'DHS01E07',     # Desperate housewifves
+    'DHS01E01',     # Desperate housewifves
+    'DHS01E07',    
     'DHS01E08',
+
     'FS01E05',      # Friends
     'FS01E06',
     'FS01E07',
+    
     'HTGAWMS01E01', # How to get away with murder
-    'Other',        # Other words in my life
-    'LDR',          # Love death + robots
-    'POE',          # Path of exile
+    
+    'DM',           # Despicable Me
     'JW',           # Jurassic World
-    'Youdao',       # Words in Youdao collins meaning or example
-    'DM'            # Despicable Me
-    ], default = 'HTGAWMS01E01', help = 'Show the episode the word shows up')
+    'LDR',          # Love death + robots
+    'MR',           # Mechanic: resurrection
+    'POE',          # Path of exile
+
+    'Other',        # Other words in my life
+    'Youdao'        # Words in Youdao collins meaning or example
+    ], default = 'DHS01E01', help = 'Show the episode the word shows up')
 
 
 args = parser.parse_args()
