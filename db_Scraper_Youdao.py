@@ -16,10 +16,15 @@ parser.add_argument('-i', '--index', default = 1, help = 'index of the meaning',
 parser.add_argument('-f', '--filename', default = 'DH.docx', help = 'Microsoft Word file name')
 parser.add_argument('-m', '--meaning', default = '-', help = 'Add the meaning of the word')
 parser.add_argument('-ex', '--example', default = '-', help = 'Add the example of the word')
-#parser.add_argument('-e', '--episode', default = 'DHS01E08', help = 'Show the episode the word shows up')
+parser.add_argument('-a', '--add', default = 0, help = 'whether I need to add extra meaning. 0: no need to add, 1: need to add')
 
 parser.add_argument('-e', '--episode', choices = [
     'DHS01E01',     # Desperate housewifves
+    'DHS01E02',
+    'DHS01E03',
+    'DHS01E04',
+    'DHS01E05',
+    'DHS01E06',
     'DHS01E07',    
     'DHS01E08',
 
@@ -35,6 +40,8 @@ parser.add_argument('-e', '--episode', choices = [
     'MR',           # Mechanic: resurrection
     'POE',          # Path of exile
 
+    'NCE',          # New Concept English
+
     'Other',        # Other words in my life
     'Youdao'        # Words in Youdao collins meaning or example
     ], default = 'DHS01E01', help = 'Show the episode the word shows up')
@@ -49,6 +56,7 @@ doc_name = args.filename
 add_meaning = args.meaning
 add_example = args.example
 episode = args.episode
+add_extra = args.add
 
 # %%
 # Scrape info from Youdao
@@ -67,14 +75,14 @@ def scrapeFromYoudao(word, word_type, collins_idx, add_meaning):
     # Find the collins meaning and example
     collins = soup.find('div', attrs = {'id': 'collinsResult'})
 
-    if collins:
+    if collins and not(add_extra):
         # If the word has more than one 词性
         collins = collins.select('.wt-container:nth-child(' + str(word_type) + ')')
         # print(collins)
 
         # collins_item: the meaning we need including meaning and examples 
         collins_item = collins[0].select('li:nth-child(' + str(collins_idx) + ') > .collinsMajorTrans')
-        collins_meaning = collins_item[0].get_text(' ', strip = True)
+        collins_meaning = str(word_type) + '.' + collins_item[0].get_text(' ', strip = True)
 
         collins_example_div = collins[0].select('li:nth-child(' + str(collins_idx) + ') .examples')
         collins_example = collins_example_div[0].get_text('\n', strip = True) if collins_example_div else '-'

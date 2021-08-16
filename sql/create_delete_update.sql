@@ -11,16 +11,16 @@ CREATE TABLE WORDS (
 
 --UPDATE
 UPDATE WORDS
-SET word = 'fulfillment'
-WHERE id = 1113 AND word = 'fulfilment';
+SET word = 'draw up'
+WHERE id = 1211 AND word = 'draw-u';
 
 UPDATE WORDS
-SET pron_us = '美 [dɪˌvɔːrˈseɪ]'
-WHERE id = 1174 AND word = 'divorcee';
+SET pron_us = '[ˈɒsəʊ ˈbʊkəʊ]'
+WHERE id = 1261 AND word = 'osso bucco';
 
 UPDATE WORDS
-SET collins_meaning = '1. N-COUNT A plumber is a person whose job is to connect and repair things such as water and drainage pipes, bathtubs, and toilets. 水管工; 水暖工'
-WHERE id = 1138 AND word = 'plumber';
+SET collins_meaning = '2.2. V-I If someone is lying , they are saying something which they know is not true. 撒谎'
+WHERE id = 1268 AND word = 'lie';
 
 UPDATE WORDS
 SET collins_example = 'I can''t believe you went over there.
@@ -29,8 +29,8 @@ You''re obviously into each other.'
 WHERE id = 1164 AND word = '-';
 
 UPDATE WORDS
-SET episode = 'Youdao'
-WHERE id = 1186 AND word = 'incredible';
+SET episode = 'NCE'
+WHERE id = 1227 AND word = 'corner';
 
 --DELETE ALL THE RECORDS
 -- DELETE FROM WORDS2;
