@@ -10,7 +10,7 @@ SELECT * FROM WORDS WHERE collins_meaning LIKE '%呼啸%';
 SELECT * FROM WORDS WHERE episode = 'FS01E06';
 
 /* COCA60000 SELECT */
-SELECT * FROM COCA60000 WHERE word = 'jeweler';
+SELECT * FROM COCA60000 WHERE word = 'don''t';
 
 /* WORDS_COCA SELECT */
 SELECT * FROM WORDS_COCA WHERE word = 'diarrhea';

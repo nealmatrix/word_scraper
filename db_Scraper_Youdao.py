@@ -63,17 +63,20 @@ add_extra = args.add
 # %%
 # Search COCA frequency in real time, shwon in terminal
 def searchCOCA(word):
-    con = sl.connect('words.db')
-    
-    with con:
-        try:
-            df = pd.read_sql_query(
-                "SELECT * FROM COCA60000 WHERE word = '" + 
-                word.replace("'", "''") + "';" , con)
-            
-            print("\n" + df["id"][0])
-        except:
-            print("\n" + "not found in COCA60000")
+    try:
+        con = sl.connect('words.db')
+        df = pd.read_sql_query(
+            "SELECT * FROM COCA60000 WHERE word = '" + 
+            word.replace("'", "''") + "';" , con)
+
+        print("\n" + str(df["id"][0]))
+        
+    except IndexError:
+        print("\n" + "not found in COCA60000")
+
+    finally:
+        if (con):
+            con.close()
 
 # %%
 # Scrape info from Youdao
