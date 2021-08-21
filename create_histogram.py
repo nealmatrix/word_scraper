@@ -10,6 +10,7 @@ import time
 up_bound = 20000
 x_gap = 2000
 text_x_gap = 1000
+y_limit = 200
 
 # Only fetch COCA < 20001 frequency words
 con = sl.connect('words.db')
@@ -29,6 +30,9 @@ x = np.arange(0, up_bound + 1, x_gap)
 labels = [str(x) + 'k' for x in range(0, 21, 2)]
 plt.xticks(x, labels)
 
+# Fix Y axis range
+plt.ylim(0, y_limit)
+
 # Plot the number of each bar
 text_x = np.arange(text_x_gap/2, up_bound, text_x_gap)
 for a, b in zip(text_x, n_int):
@@ -36,7 +40,7 @@ for a, b in zip(text_x, n_int):
 
 # Plot total number I've learnt
 total = sum(n_int)
-ax.text(up_bound - text_x_gap, max(n_int) + 0.5, 
+ax.text(up_bound - text_x_gap, y_limit, 
     'total: ' + str(total) + ' | ' + str(round(total / up_bound * 100, 3)) + '%',
     ha = 'center', va = 'bottom', weight = 'bold', color = 'red')
 

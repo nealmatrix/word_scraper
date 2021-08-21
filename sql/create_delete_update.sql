@@ -11,22 +11,24 @@ CREATE TABLE WORDS (
 
 --UPDATE
 UPDATE WORDS
-SET word = 'draw up'
-WHERE id = 1211 AND word = 'draw-u';
+SET word = 'jeweler'
+WHERE id = 1378 AND word = 'jeweller';
 
 UPDATE WORDS
 SET pron_us = '[ˈɒsəʊ ˈbʊkəʊ]'
 WHERE id = 1261 AND word = 'osso bucco';
 
 UPDATE WORDS
-SET collins_meaning = '2.2. V-I If someone is lying , they are saying something which they know is not true. 撒谎'
-WHERE id = 1268 AND word = 'lie';
+SET collins_meaning = '1.3. V-T If something is mutilated , it is deliberately damaged or spoiled. 毁坏'
+WHERE id = 1420 AND word = 'mutilate';
 
 UPDATE WORDS
-SET collins_example = 'I can''t believe you went over there.
-Hey, I saw you both flirting at the wake.
-You''re obviously into each other.'
-WHERE id = 1164 AND word = '-';
+SET collins_example = 'How''s domestic life? Don''t you just love being a mom?
+And there it was... The question that Lynette always dreaded.
+Well, to be honest...
+For those who asked it, only one answer was acceptable, so Lynette responded as she always did. She lied.
+It''s the best job I''ve ever had.'
+WHERE id = 1438 AND word = '-';
 
 UPDATE WORDS
 SET episode = 'NCE'

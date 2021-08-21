@@ -6,6 +6,8 @@ from docx.shared import Pt
 from docx.shared import Cm
 from docx.shared import RGBColor
 import argparse
+import pandas as pd
+import sqlite3 as sl
 
 # %%
 # Command Parameter
@@ -59,6 +61,21 @@ episode = args.episode
 add_extra = args.add
 
 # %%
+# Search COCA frequency in real time, shwon in terminal
+def searchCOCA(word):
+    con = sl.connect('words.db')
+    
+    with con:
+        try:
+            df = pd.read_sql_query(
+                "SELECT * FROM COCA60000 WHERE word = '" + 
+                word.replace("'", "''") + "';" , con)
+            
+            print("\n" + df["id"][0])
+        except:
+            print("\n" + "not found in COCA60000")
+
+# %%
 # Scrape info from Youdao
 def scrapeFromYoudao(word, word_type, collins_idx, add_meaning):
     url = "http://dict.youdao.com/w/" + word + "/#keyfrom=dict2.top"
@@ -99,7 +116,6 @@ def scrapeFromYoudao(word, word_type, collins_idx, add_meaning):
 # %%
 # Store data into the sqlite database
 def WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode):
-    import sqlite3 as sl
     con = sl.connect('words.db')
 
     print( 
@@ -159,7 +175,7 @@ def get_words_unique(words):
 
 # %%
 if __name__ == "__main__":
-
+    searchCOCA(word)
     pron_us, collins_meaning, collins_example = scrapeFromYoudao(word, word_type, collins_idx, add_meaning)
 
     # Double check
