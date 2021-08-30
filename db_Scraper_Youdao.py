@@ -15,9 +15,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-w', '--word', default = "test", help = 'input word', type = str)
 parser.add_argument('-t', '--type', default = 1, help = 'input word type index in collins', type = int)
 parser.add_argument('-i', '--index', default = 1, help = 'index of the meaning', type = int)
-parser.add_argument('-f', '--filename', default = 'DH.docx', help = 'Microsoft Word file name')
+# parser.add_argument('-f', '--filename', default = 'DH.docx', help = 'Microsoft Word file name')
 parser.add_argument('-m', '--meaning', default = '-', help = 'Add the meaning of the word')
 parser.add_argument('-ex', '--example', default = '-', help = 'Add the example of the word')
+# parser.add_argument('-exi', '--example_index', default = 1, help = 'the example index of the word in Youdao I want to choose')
+parser.add_argument('-exi', '--example_index_list', nargs = '+', default = [1], help = 'the example index of the word in Youdao I want to choose')
 parser.add_argument('-a', '--add', default = 0, help = 'whether I need to add extra meaning. 0: no need to add, 1: need to add')
 
 parser.add_argument('-e', '--episode', choices = [
@@ -54,9 +56,10 @@ args = parser.parse_args()
 word = args.word
 word_type = args.type
 collins_idx = args.index
-doc_name = args.filename
+# doc_name = args.filename # temporily delete the Microsoft word export functions
 add_meaning = args.meaning
 add_example = args.example
+example_index_list = args.example_index_list
 episode = args.episode
 add_extra = args.add
 
@@ -105,7 +108,14 @@ def scrapeFromYoudao(word, word_type, collins_idx, add_meaning):
         collins_meaning = str(word_type) + '.' + collins_item[0].get_text(' ', strip = True)
 
         collins_example_div = collins[0].select('li:nth-child(' + str(collins_idx) + ') .examples')
-        collins_example = collins_example_div[0].get_text('\n', strip = True) if collins_example_div else '-'
+        # collins_example = collins_example_div[int(example_index) - 1].get_text('\n', strip = True) if collins_example_div else '-'
+        if collins_example_div:
+            collins_example = ''
+            for example_index in example_index_list:
+                collins_example += collins_example_div[int(example_index) - 1].get_text('\n', strip = True) + '\n'
+            collins_example = collins_example[: -1]
+        else:
+            collins_example = '-'
     else:
         collins_meaning = add_meaning
         collins_example = add_example

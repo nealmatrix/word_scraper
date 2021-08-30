@@ -11,34 +11,32 @@ CREATE TABLE WORDS (
 
 --UPDATE
 UPDATE WORDS
-SET word = 'jeweler'
-WHERE id = 1378 AND word = 'jeweller';
+SET word = 'light'
+WHERE id = 1614 AND word = 'tense of light';
 
 UPDATE WORDS
-SET pron_us = '[ˈɒsəʊ ˈbʊkəʊ]'
-WHERE id = 1261 AND word = 'osso bucco';
+SET pron_us = '美 [ˈdʒenjuɪnli]'
+WHERE id = 1676 AND word = 'genuine';
 
 UPDATE WORDS
-SET collins_meaning = '1.3. V-T If something is mutilated , it is deliberately damaged or spoiled. 毁坏'
-WHERE id = 1420 AND word = 'mutilate';
+SET collins_meaning = '1.1. ADJ Someone or something that is remarkable is unusual or special in a way that makes people notice them and be surprised or impressed. 非凡卓越的; 不同寻常的; 引人注目的' 
+WHERE id = 1755 AND word = 'remarkable';
 
 UPDATE WORDS
-SET collins_example = 'How''s domestic life? Don''t you just love being a mom?
-And there it was... The question that Lynette always dreaded.
-Well, to be honest...
-For those who asked it, only one answer was acceptable, so Lynette responded as she always did. She lied.
-It''s the best job I''ve ever had.'
-WHERE id = 1438 AND word = '-';
+SET collins_example = 'He noticed Rolfe standing silently over by the window.
+他注意到罗尓夫默默地站在窗旁。
+Yeah, just give me two minutes. I''ll be right over.'
+WHERE id = 1736 AND word = 'over';
 
 UPDATE WORDS
-SET episode = 'NCE'
-WHERE id = 1227 AND word = 'corner';
+SET episode = 'Youdao'
+WHERE id = 1535 AND word = 'struggle';
 
 --DELETE ALL THE RECORDS
 -- DELETE FROM WORDS2;
 
 --DELETE THE SPECIFIC RECORD
-DELETE FROM WORDS WHERE id = 1057;
+DELETE FROM WORDS WHERE id = 1548;
 
 /* Exchange two rows id */
 -- DECLARE @ID INT; -- sqlite not supported
