@@ -5,9 +5,9 @@ This project aims to help English learners to expand their vocabulary quickly. I
     <img src = "md_fig/f1.png" width = "400">
 </p>
 
-Afterward, it automatically forms the table in database words.db. You can use a variaty of sql statements to query these words in order to help you study and revise them.
+Afterward, it automatically forms the table in database words.db. You can use a variaty of sql statements to query these words in order to help you study and review them.
 
-# Command-Line 
+<!-- # Command-Line  -->
 # Table header
 Database: words.db
 
