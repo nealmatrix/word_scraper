@@ -1,10 +1,10 @@
 # %%
 import requests
 from bs4 import BeautifulSoup
-from docx import Document
-from docx.shared import Pt
-from docx.shared import Cm
-from docx.shared import RGBColor
+# from docx import Document
+# from docx.shared import Pt
+# from docx.shared import Cm
+# from docx.shared import RGBColor
 import argparse
 import pandas as pd
 import sqlite3 as sl
@@ -154,31 +154,31 @@ def WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode):
     print("\nInsert into database DONE")
 
 # %%
-def writeIntoWords(doc_name, word, pron_us, collins_meaning, collins_example, episode):
-    # Write into Microsoft Word
-    doc = Document(doc_name)
+# def writeIntoWords(doc_name, word, pron_us, collins_meaning, collins_example, episode):
+#     # Write into Microsoft Word
+#     doc = Document(doc_name)
 
-    style = doc.styles['Normal']
-    font = style.font
-    font.name = 'Consolas'
-    font.size = Pt(10.5)
+#     style = doc.styles['Normal']
+#     font = style.font
+#     font.name = 'Consolas'
+#     font.size = Pt(10.5)
 
-    doc.add_paragraph(word + ': ' + pron_us)
-    p = doc.add_paragraph()
-    p.add_run(collins_meaning).bold = True
-    run = p.add_run(' [' + episode + ']')
-    run.font.color.rgb = RGBColor(0x4E, 0xAD, 0xEA)
-    run.bold = True
+#     doc.add_paragraph(word + ': ' + pron_us)
+#     p = doc.add_paragraph()
+#     p.add_run(collins_meaning).bold = True
+#     run = p.add_run(' [' + episode + ']')
+#     run.font.color.rgb = RGBColor(0x4E, 0xAD, 0xEA)
+#     run.bold = True
 
-    doc.add_paragraph('\nex: ' + collins_example)
-    doc.add_paragraph('')
+#     doc.add_paragraph('\nex: ' + collins_example)
+#     doc.add_paragraph('')
 
-    paragraphs = doc.paragraphs
-    for i in (-3, -2):
-        paragraphs[i].paragraph_format.left_indent = Cm(1)
+#     paragraphs = doc.paragraphs
+#     for i in (-3, -2):
+#         paragraphs[i].paragraph_format.left_indent = Cm(1)
 
-    doc.save(doc_name)
-    print("Write " + word + " into " + doc_name + " DONE")
+#     doc.save(doc_name)
+#     print("Write " + word + " into " + doc_name + " DONE")
 
 # %%
 def get_words_unique(words):

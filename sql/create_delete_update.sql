@@ -11,16 +11,16 @@ CREATE TABLE WORDS (
 
 --UPDATE
 UPDATE WORDS
-SET word = 'light'
-WHERE id = 1614 AND word = 'tense of light';
+SET word = 'fulfill'
+WHERE id = 1882 AND word = 'fulfil';
 
 UPDATE WORDS
-SET pron_us = '美 [ˈdʒenjuɪnli]'
-WHERE id = 1676 AND word = 'genuine';
+SET pron_us = '[səˈspenʃn brɪdʒ]'
+WHERE id = 1857 AND word = 'suspension bridge';
 
 UPDATE WORDS
-SET collins_meaning = '1.1. ADJ Someone or something that is remarkable is unusual or special in a way that makes people notice them and be surprised or impressed. 非凡卓越的; 不同寻常的; 引人注目的' 
-WHERE id = 1755 AND word = 'remarkable';
+SET collins_meaning = '1.1. N the state or quality of being immense; vastness; enormity 巨大; 无限; 广大;' 
+WHERE id = 1880 AND word = 'immensity';
 
 UPDATE WORDS
 SET collins_example = 'He noticed Rolfe standing silently over by the window.

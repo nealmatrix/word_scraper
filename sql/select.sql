@@ -1,10 +1,12 @@
 /* WORDS SELECT */
 --SHOW PART OF THE RECORDS
-SELECT * FROM WORDS WHERE id > 1730; -- today's words
+SELECT * FROM WORDS WHERE id > 1850; -- today's words
 
-SELECT * FROM WORDS WHERE word LIKE '%sort%';
-SELECT * FROM WORDS WHERE collins_meaning LIKE '%律师%';
-SELECT * FROM WORDS WHERE collins_example LIKE '%right over%';
+SELECT * FROM WORDS WHERE id > 1730; -- this week's words
+
+SELECT * FROM WORDS WHERE word LIKE '%fulfill%';
+SELECT * FROM WORDS WHERE collins_meaning LIKE '%放松%';
+SELECT * FROM WORDS WHERE collins_example LIKE '%spouse%';
 SELECT * FROM WORDS WHERE episode = 'FS01E06';
 
 SELECT COUNT(*) FROM WORDS;
@@ -26,7 +28,7 @@ SELECT * FROM (
     UNION ALL
     SELECT * FROM (
         SELECT * FROM WORDS_COCA WHERE COCA IS NULL AND word = '-' ORDER BY episode))      -- FOR SENTENCE
-WHERE id > 1490;
+WHERE id > 1730;
 
 -- FOR REVIEW previous words every day
 SELECT * FROM (
