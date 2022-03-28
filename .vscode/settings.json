@@ -1,3 +1,12 @@
 {
-    "python.pythonPath": "/Users/chuanyu/opt/anaconda3/envs/py3.5/bin/python"
+    "python.pythonPath": "/Users/chuanyu/opt/anaconda3/envs/py3.5/bin/python",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "eng",
+            "database": "${workspaceFolder:DB_Scraper_Youdao}/words.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
 }

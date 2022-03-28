@@ -7,7 +7,7 @@ This project aims to help English learners to expand their vocabulary quickly. I
 
 Afterward, it automatically forms the table in database words.db. You can use a variaty of sql statements to query these words in order to help you study and review them.
 
-More importantly, this software integrates the word frequency based on Corpus of Contemporary American English (COCA). You are able to learn each word with its word frequency which would be more efficient. 
+More importantly, this software integrates the word frequency based on Corpus of Contemporary American English (COCA). You are able to learn each word efficiently with its word frequency. 
 
 # Prerequisite
 Python version
@@ -16,6 +16,7 @@ Python version
 Python packages
 * requests 2.25.1 or above
 * pandas 0.22.0 or above
+* beautifulsoup4 4.9.3 or above
 
 Editor
 * Vscode (recommended)

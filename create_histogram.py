@@ -10,7 +10,6 @@ import time
 up_bound = 20000
 x_gap = 2000
 text_x_gap = 1000
-y_limit = 200
 
 # Only fetch COCA < 20001 frequency words
 con = sl.connect('words.db')
@@ -24,6 +23,10 @@ fig, ax = plt.subplots()
 n, bins, patches = plt.hist(df_learn_list_unique, bins = 20, range = (0, 20000), density = False, edgecolor = "black")
 n_int = [ int(x) for x in n]
 print(n_int)
+
+# Calculate y_limit
+n_max = max(n_int)
+y_limit = (int(n_max/100) + 1) * 100
 
 # Plot X axis 
 x = np.arange(0, up_bound + 1, x_gap)

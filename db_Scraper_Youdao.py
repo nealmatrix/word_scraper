@@ -37,17 +37,28 @@ parser.add_argument('-e', '--episode', choices = [
     'FS01E07',
     
     'HTGAWMS01E01', # How to get away with murder
+    'LF',           # Lucifer
+    'LTN',          # Light the night
     
     'DM',           # Despicable Me
     'JW',           # Jurassic World
     'LDR',          # Love death + robots
     'MR',           # Mechanic: resurrection
+
     'POE',          # Path of exile
+    'MC',           # Minecraft
+    'HS',           # Hearthstone
+    'D3',           # Diablo 3 
 
     'NCE',          # New Concept English
 
+    'CS',           # Computer Science
+
     'Other',        # Other words in my life
-    'Youdao'        # Words in Youdao collins meaning or example
+    'Pron',         # Pronunciation correction
+    'Youdao',       # Words in Youdao collins meaning or example
+    'Name',         # Male first name, Female first name, last name
+    'Place'         # Place name 
     ], default = 'DHS01E01', help = 'Show the episode the word shows up')
 
 
