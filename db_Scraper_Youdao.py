@@ -77,10 +77,33 @@ def searchCOCA(word):
             word.replace("'", "''") + "';" , con)
 
         print("\n" + str(df["id"][0]))
-        
     except IndexError:
         print("\n" + "not found in COCA60000")
+    finally:
+        if (con):
+            con.close()
 
+# %%
+# Search word in the database in case duplicate
+def search_word_in_words_COCA(word):
+    try:
+        con = sl.connect('words.db')
+        df = pd.read_sql_query(
+            "SELECT {} FROM (\
+                SELECT * FROM (\
+                    SELECT * FROM WORDS_COCA WHERE COCA IS NOT NULL ORDER BY COCA, collins_meaning)\
+                UNION ALL\
+                SELECT * FROM (\
+                    SELECT * FROM WORDS_COCA WHERE COCA IS NULL AND word <> '-' ORDER BY word, collins_meaning)\
+                UNION ALL\
+                SELECT * FROM (\
+                    SELECT * FROM WORDS_COCA WHERE COCA IS NULL AND word = '-' ORDER BY episode))\
+            WHERE word = '{}';".format('collins_meaning', word), con)
+
+        pd.set_option('display.max_colwidth', -1)
+        print(df.to_string(index = False))
+    except IndexError:
+        print("\n" + "word not found in WORDS_COCA")
     finally:
         if (con):
             con.close()
@@ -165,6 +188,7 @@ def get_words_unique(words):
 # %%
 if __name__ == "__main__":
     searchCOCA(word)
+    search_word_in_words_COCA(word)
     pron_us, collins_meaning, collins_example = scrapeFromYoudao(word, word_type, collins_idx, add_meaning)
 
     # Double check
