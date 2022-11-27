@@ -1,15 +1,15 @@
 /* WORDS SELECT */
 --SHOW PART OF THE RECORDS
-SELECT * FROM WORDS WHERE id > 4280; -- today's words and after
+SELECT * FROM WORDS WHERE id > 4380; -- today's words and after
 
-SELECT * FROM WORDS WHERE word LIKE '%exchange%'
-    -- or word LIKE '%chief%'
+SELECT * FROM WORDS WHERE word LIKE '%literal%'
+    /* or word LIKE '%sigh%' */
     -- or word LIKE '%stock%'
     ORDER BY word, collins_meaning;
 
 SELECT * FROM WORDS WHERE 
-    collins_meaning LIKE '%讽刺%'
-    -- or collins_meaning LIKE '%繁荣%'
+    collins_meaning LIKE '%表明%'
+    or collins_meaning LIKE '%显示%'
     -- or collins_meaning LIKE '%表明%'
     -- or collins_meaning LIKE '%疲%'
     ORDER BY word;
@@ -27,7 +27,8 @@ SELECT * FROM COCA60000 WHERE word = 'indignation';
 SELECT * FROM COCA60000 WHERE id < 3001;
 
 /* WORDS_COCA SELECT */
-SELECT * FROM WORDS_COCA WHERE word = 'hostile';
+SELECT * FROM WORDS_COCA WHERE word = 'bureau';
+SELECT COUNT(*) FROM WORDS_COCA;
 
 -- FOR REVIEW new words every day
 SELECT * FROM (

@@ -11,16 +11,16 @@ CREATE TABLE WORDS (
 
 --UPDATE
 UPDATE WORDS
-SET word = 'exchange'
-WHERE id = 4292 AND word = 'foreign exchange';
+SET word = 'companion'
+WHERE id = 4348 AND word = 'companions';
 
 UPDATE WORDS
-SET pron_us = '[ɪnˈtɪmədeɪt]'
-WHERE id = 4290 AND word = 'intimidate';
+SET pron_us = '[dɪˈspjuːt]'
+WHERE id = 3921 AND word = 'dispute';
 
 UPDATE WORDS
-SET collins_meaning = '1.1. ADV You use merely to emphasize that something is only what you say and not better, more important, or more exciting. 仅仅; 只不过 (用来强调某事物不是很重要或很有价值) [强调]' 
-WHERE id = 4256 AND word = 'merely';
+SET collins_meaning = '1.1. N the position of a digit after the decimal point, each successive position to the right having a denominator of an increased power of ten 小数位，小数点右边第一个数位' 
+WHERE id = 4385 AND word = 'decimal place';
 
 UPDATE WORDS
 SET collins_example = 'He asked if he might conduct us to the ball which was to bring the proceedings to an end.

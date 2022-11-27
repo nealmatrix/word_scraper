@@ -101,7 +101,7 @@ def search_word_in_words_COCA(word):
             WHERE word = '{}';".format('collins_meaning', word), con)
 
         pd.set_option('display.max_colwidth', -1)
-        print(df.to_string(index = False))
+        print('\n', df.to_string(index = False, header = False))
     except IndexError:
         print("\n" + "word not found in WORDS_COCA")
     finally:
@@ -154,7 +154,7 @@ def scrapeFromYoudao(word, word_type, collins_idx, add_meaning):
 
 # %%
 # Store data into the sqlite database
-def WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode):
+def writeIntoDB(word, pron_us, collins_meaning, collins_example, episode):
     con = sl.connect('words.db')
 
     print( 
@@ -186,6 +186,34 @@ def get_words_unique(words):
     return [x for x in words if not (x in seen or seen_add(x))]
 
 # %%
+# Create WORDS_COCA
+def create_WORDS_COCA():
+    con = sl.connect('words.db')
+
+    with con:
+        con.execute("DROP TABLE IF EXISTS WORDS_COCA;")
+        con.execute(
+            "CREATE TABLE WORDS_COCA (\
+            COCA INTEGER,\
+            word varchar(255),\
+            episode varchar(255),\
+            pron_us varchar(255),\
+            collins_meaning varchar(255),\
+            collins_example varchar(255),\
+            id INTEGER);"
+        )
+        con.execute(
+            "INSERT INTO WORDS_COCA(id, COCA, word, pron_us, collins_meaning, collins_example, episode)\
+            SELECT WORDS.id, COCA60000.id, WORDS.word, pron_us, collins_meaning, collins_example, episode\
+            FROM WORDS\
+            LEFT JOIN COCA60000\
+            ON WORDS.word = COCA60000.word\
+            ORDER BY COCA60000.id;"
+        )
+        con.commit()
+
+    print("\nCreate WORDS_COCA DONE")
+# %%
 if __name__ == "__main__":
     searchCOCA(word)
     search_word_in_words_COCA(word)
@@ -195,7 +223,8 @@ if __name__ == "__main__":
     yOrN = input('\nContent Checked, Y or N?\n')
 
     if yOrN.upper() == 'Y':
-        WriteIntoDB(word, pron_us, collins_meaning, collins_example, episode)
+        writeIntoDB(word, pron_us, collins_meaning, collins_example, episode)
+        create_WORDS_COCA()
 
     else:
         print("Cancel")
