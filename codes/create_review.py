@@ -14,10 +14,13 @@ pd.set_option('display.max_rows', 10)
 # Parameter
 index_end_last_sat = 4380
 num_review = 100
+review_path = r'../miscellaneous/review/'
+review_all_path = os.path.join(review_path, 'review_all/')
+tmp_path = r'../tmp/'
 
 # %%
 # Fetch WORDS_COCA table from database
-con = sl.connect('words.db')
+con = sl.connect('../words.db')
 with con:
     df_COCA = pd.read_sql_query(
         "SELECT * FROM (\
@@ -36,7 +39,8 @@ df_COCA
 
 # %%
 # Produce review_all for tomorrow's review
-with open(".//doc//reviewed.csv", 'r+') as f:
+with open(os.path.join(tmp_path, 'reviewed.csv'), 'r+') as f:
+# with open(".//doc//reviewed.csv", 'r+') as f:
     reviewed = []
     while True:
         review = f.readline()
@@ -59,7 +63,8 @@ with open(".//doc//reviewed.csv", 'r+') as f:
 
     filename = time.strftime("%Y-%m-%d %H.%M.%S", time.localtime())
     
-    df_today_reviews.to_csv('.//doc//review_all//' + filename + '-review.csv')
+    df_today_reviews.to_csv(os.path.join(review_all_path, filename + '-review.csv'))
+    # df_today_reviews.to_csv('.//doc//review_all//' + filename + '-review.csv')
 
     # Write the id of today review words into reviewed.csv
     today_reviews = list(df_today_reviews['id'])
@@ -74,7 +79,7 @@ with open(".//doc//reviewed.csv", 'r+') as f:
         
 # %%
 # Produce week_review & week_review_COCA
-con = sl.connect('words.db')
+con = sl.connect('../words.db')
 with con:
     df_week = pd.read_sql_query(
         "SELECT * FROM WORDS WHERE id > " + str(index_end_last_sat) + ";", con) 
@@ -98,6 +103,6 @@ display(df_week)
 print("week review with COCA")
 display(df_week_COCA)
 
-df_week.to_csv(os.path.join('doc', 'week_review.csv'))
-df_week_COCA.to_csv(os.path.join('doc', 'week_review_COCA.csv'))
+df_week.to_csv(os.path.join(review_path, 'week_review.csv'))
+df_week_COCA.to_csv(os.path.join(review_path, 'week_review_COCA.csv'))
 # %%
