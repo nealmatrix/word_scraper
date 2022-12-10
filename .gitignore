@@ -2,7 +2,7 @@
 .DS_Store
 
 # Vscode
-.vscode
+.vscode/
 
 # Word
 doc/
@@ -17,6 +17,7 @@ test.py
 *.db
 *.txt
 *.db-journal
+sql/
 
 # Figure
 progress_fig/
