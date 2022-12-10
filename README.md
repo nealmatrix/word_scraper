@@ -2,7 +2,7 @@
 This project aims to help English learners to expand their vocabulary quickly. It scrapes the words info you target from Youdao website (URL: http://dict.youdao.com/w/) collins section.
 
 <p style = "text-align: center;">
-    <img src = "md_fig/f1_test.png" width = "400">
+    <img src = "figures/f1_test.png" width = "400">
 </p>
 
 Afterward, it automatically forms the table in database words.db. You can use a variaty of sql statements to query these words in order to help you study and review them.
@@ -60,7 +60,7 @@ i.e. `python db_Scraper_Youdao.py -w test -e Other`
 2. Example, we want to input word better, section 2 GIVING ADVICE, first meaning and second examples into our database (highlight in red rectangle). Command is  
 `python db_Scraper_Youdao.py -w better -t 2 -i 1 -exi 2 -e Other`
 <p style = "text-align: center;">
-    <img src = "md_fig/f2_better.png" width = "300">
+    <img src = "figures/f2_better.png" width = "300">
 </p>
 
 3. Detailed arguments of db_Scraper_Youdao.py can be found using `python db_Scraper_Youdao.py -h`
