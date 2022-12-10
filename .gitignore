@@ -1,23 +1,14 @@
 # Apple
 .DS_Store
 
-# Vscode
-.vscode/
-
-# Word
-doc/
-*.docx
-
 # Python
 __pycache__/
 *.pyc
-test.py
+test*.py
 
 # Database related files
 *.db
-*.txt
-*.db-journal
-sql/
 
-# Figure
-progress_fig/
+# Other
+miscellaneous/
+tmp/
