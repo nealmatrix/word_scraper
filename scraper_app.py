@@ -1,6 +1,6 @@
 import argparse
 
-from scraper import Scraper
+from src.scraper import Scraper
 
 if __name__ == '__main__':
 
