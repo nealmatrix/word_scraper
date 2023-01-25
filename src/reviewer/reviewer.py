@@ -12,15 +12,21 @@ class Reviewer:
     def __init__(self, last_index: int):
         self._last_index = last_index
 
+        # Review const
         self._review_path = ReviewConst.REVIEW_PATH
         self._daily_review_path = os.path.join(self._review_path, ReviewConst.DAILY_REVIEW_FOLDER)
-        self._tmp_path = ReviewConst.TMP_PATH
 
         self._week_review_file_name = ReviewConst.WEEK_REVIEW_FILE_NAME
         self._week_coca_review_file_name = ReviewConst.WEEK_COCA_REVIEW_FILE_NAME
 
+        # Reviewed in tmp file
+        self._tmp_path = ReviewConst.TMP_PATH
+        self._reviewed_file_name = ReviewConst.REVIEWED_FILE_NAME
+
+        # Daily review number
         self._num_review = ReviewConst.NUM_REVIEW
 
+        # Get words_coca_df
         self._words_coca_df = None
         self._query_words_coca()
 
@@ -50,7 +56,7 @@ class Reviewer:
         '''
         Generate daily review for tomorrow's review
         '''
-        with open(os.path.join(self._tmp_path, 'reviewed.csv'), 'r+') as f:
+        with open(os.path.join(self._tmp_path, self._reviewed_file_name), 'r+') as f:
             reviewed = []
 
             while True:
@@ -62,7 +68,7 @@ class Reviewer:
                 review = review.rstrip('\n')
                 reviewed.append(int(review))
 
-            Printer.double_break_print(f'num of reviewed: {len(reviewed)}')
+            Printer.double_break_print(f'Num of reviewed: {len(reviewed)}')
 
             no_reviews_df = self._words_coca_df.loc[~self._words_coca_df['id'].isin(reviewed)]
             daily_review_df = no_reviews_df[:self._num_review].reset_index(drop = True)
