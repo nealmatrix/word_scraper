@@ -2,7 +2,7 @@ from src.reviewer import Reviewer
 
 if __name__ == '__main__':
 
-    last_index = 4380
+    last_index = 4442
 
     # Init reviewer obj
     review_obj = Reviewer(last_index)

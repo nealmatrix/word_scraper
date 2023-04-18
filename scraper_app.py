@@ -24,6 +24,8 @@ if __name__ == '__main__':
         'DHS01E07',    
         'DHS01E08',
 
+        'FS01E03',
+        'FS01E04',
         'FS01E05',      # Friends
         'FS01E06',
         'FS01E07',
