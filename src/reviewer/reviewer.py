@@ -9,8 +9,8 @@ from utils import Printer
 
 class Reviewer:
 
-    def __init__(self, last_index: int):
-        self._last_index = last_index
+    def __init__(self, index: int):
+        self._index = index
 
         # Review const
         self._review_path = ReviewConst.REVIEW_PATH
@@ -99,7 +99,7 @@ class Reviewer:
         con = sl.connect(Const.DB_PATH)
 
         with con:
-            week_review_df = pd.read_sql_query(f'SELECT * FROM WORDS WHERE id > {self._last_index};', con) 
+            week_review_df = pd.read_sql_query(f'SELECT * FROM WORDS WHERE id >= {self._index};', con) 
             
             week_coca_review_df = pd.read_sql_query(
                 f'SELECT * FROM (\
@@ -111,7 +111,7 @@ class Reviewer:
                     UNION ALL\
                     SELECT * FROM (\
                         SELECT * FROM WORDS_COCA WHERE COCA IS NULL AND word = \'-\' ORDER BY episode))\
-                WHERE id > {self._last_index};', con)
+                WHERE id >= {self._index};', con)
             
         week_coca_review_df['COCA'] = week_coca_review_df['COCA'].astype('Int64')
 

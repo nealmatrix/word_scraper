@@ -1,11 +1,16 @@
+import argparse
+
 from src.reviewer import Reviewer
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--index", default = 4000, help = "first index of the review", type = int)
 
-    last_index = 4442
+    args = parser.parse_args()
+    index = args.index
 
     # Init reviewer obj
-    review_obj = Reviewer(last_index)
+    review_obj = Reviewer(index)
 
     # Daily review
     y_or_n = input('Generate daily review?, Y or N?\n')
