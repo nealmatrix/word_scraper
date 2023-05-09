@@ -1,3 +1,8 @@
+-v0.1.1
+    [11] add index as reviewer argument
+    [8] code refactor - review
+    [5] code refactor
+    
 -v0.1.0
     [3] reorganize file folders
     [1] init word scraper
