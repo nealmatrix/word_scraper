@@ -5,6 +5,7 @@ import sqlite3 as sl
 from bs4 import BeautifulSoup
 
 from utils import Printer, Convertor
+from const import Const
 
 
 class Scraper:
@@ -34,7 +35,7 @@ class Scraper:
         Search COCA frequency in real time, shown in terminal
         '''
         try:
-            con = sl.connect('words.db')
+            con = sl.connect(Const.DB_PATH)
             df = pd.read_sql_query(
                 "SELECT * FROM COCA60000 WHERE word = '" + 
                 self._word.replace("'", "''") + "';" , con)
@@ -53,7 +54,7 @@ class Scraper:
         Search word in the database in case duplicate
         '''
         try:
-            con = sl.connect('words.db')
+            con = sl.connect(Const.DB_PATH)
 
             df = pd.read_sql_query(
                 f"SELECT * FROM (\
@@ -155,7 +156,7 @@ class Scraper:
 
         Printer.double_break_print(sql)
 
-        con = sl.connect('words.db')
+        con = sl.connect(Const.DB_PATH)
 
         with con:
             con.execute(sql)
@@ -164,7 +165,7 @@ class Scraper:
     
     @staticmethod
     def create_words_coca():
-        con = sl.connect('words.db')
+        con = sl.connect(Const.DB_PATH)
 
         with con:
             con.execute("DROP TABLE IF EXISTS WORDS_COCA;")

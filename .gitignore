@@ -1,5 +1,5 @@
 # Apple
-.DS_Store
+*.DS_Store
 
 # Python
 __pycache__/
@@ -12,3 +12,5 @@ test*.py
 # Other
 miscellaneous/
 tmp/
+data/
+review/

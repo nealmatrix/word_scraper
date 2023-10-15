@@ -1,15 +1,14 @@
 class Const:
-    DB_PATH = 'words.db'
+    DB_PATH = r'data/words.db'
 
 class ReviewConst:
-    REVIEW_PATH = r'miscellaneous/review/'
+    REVIEW_PATH = r'review/'
     DAILY_REVIEW_FOLDER = r'daily_review/'
 
     WEEK_REVIEW_FILE_NAME = 'week_review.csv'
     WEEK_COCA_REVIEW_FILE_NAME = 'week_coca_review.csv'
 
-    TMP_PATH = r'tmp/'
-    REVIEWED_FILE_NAME = 'reviewed.csv'
+    REVIEWED_FILE_PATH = r'reviewed.csv'
 
 
     NUM_REVIEW = 100

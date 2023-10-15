@@ -16,12 +16,10 @@ class Reviewer:
         self._review_path = ReviewConst.REVIEW_PATH
         self._daily_review_path = os.path.join(self._review_path, ReviewConst.DAILY_REVIEW_FOLDER)
 
-        self._week_review_file_name = ReviewConst.WEEK_REVIEW_FILE_NAME
-        self._week_coca_review_file_name = ReviewConst.WEEK_COCA_REVIEW_FILE_NAME
+        self._week_review_file_path = os.path.join(self._review_path, ReviewConst.WEEK_REVIEW_FILE_NAME)
+        self._week_coca_review_file_path = os.path.join(self._review_path, ReviewConst.WEEK_COCA_REVIEW_FILE_NAME)
 
-        # Reviewed in tmp file
-        self._tmp_path = ReviewConst.TMP_PATH
-        self._reviewed_file_name = ReviewConst.REVIEWED_FILE_NAME
+        self._reviewed_file_path = os.path.join(self._review_path, ReviewConst.REVIEWED_FILE_PATH)
 
         # Daily review number
         self._num_review = ReviewConst.NUM_REVIEW
@@ -56,7 +54,7 @@ class Reviewer:
         '''
         Generate daily review for tomorrow's review
         '''
-        with open(os.path.join(self._tmp_path, self._reviewed_file_name), 'r+') as f:
+        with open(self._reviewed_file_path, 'r+') as f:
             reviewed = []
 
             while True:
@@ -115,7 +113,7 @@ class Reviewer:
             
         week_coca_review_df['COCA'] = week_coca_review_df['COCA'].astype('Int64')
 
-        week_review_df.to_csv(os.path.join(self._review_path, self._week_review_file_name))
-        week_coca_review_df.to_csv(os.path.join(self._review_path, self._week_coca_review_file_name))
+        week_review_df.to_csv(self._week_review_file_path)
+        week_coca_review_df.to_csv(self._week_coca_review_file_path)
 
         Printer.double_break_print('Generated week review')
