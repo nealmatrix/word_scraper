@@ -47,6 +47,7 @@ if __name__ == '__main__':
         'NCE',          # New Concept English
 
         'CS',           # Computer Science
+        'ABC',          # ABC Learning English
 
         'Other',        # Other words in my life
         'Pron',         # Pronunciation correction

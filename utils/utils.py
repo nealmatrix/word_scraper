@@ -15,7 +15,7 @@ class Convertor:
 class Printer:
 
     @staticmethod
-    def print_single_column(df: pd.DataFrame, column_name) -> None:
+    def print_columns(df: pd.DataFrame, column_names: list) -> None:
 
         row_num, column_num = df.shape
 
@@ -24,7 +24,8 @@ class Printer:
             return
 
         for i in range(row_num):
-            print(df[column_name][i])
+            for column_name in column_names:
+                print(df[column_name][i])
     
     @staticmethod
     def double_break_print(*values):

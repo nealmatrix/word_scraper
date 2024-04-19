@@ -45,6 +45,9 @@ class Scraper:
         except IndexError:
             Printer.double_break_print('Not found in COCA60000')
 
+        except KeyError:
+            Printer.double_break_print('Not found in COCA60000')
+
         finally:
             if (con):
                 con.close()
@@ -68,8 +71,8 @@ class Scraper:
                         SELECT * FROM WORDS_COCA WHERE COCA IS NULL AND word = '-' ORDER BY episode))\
                 WHERE word = '{self._word}';", con)
 
-            print('Find in WORDS_COCA - collins_meaning:')
-            Printer.print_single_column(df, 'collins_meaning')
+            print('Find in WORDS_COCA:')
+            Printer.print_columns(df, ['collins_meaning', "collins_example"])
             print()
 
         except IndexError:
